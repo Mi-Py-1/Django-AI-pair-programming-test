@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+# filepath: /workspace/Django-AI-pair-programming-test/myproject/testfwproject/settings.py
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!-kp@!t&rvd%1^4t%g9xx99^nzt*i$10)=$2fo$r_&d@v_-iu('
+SECRET_KEY = os.environ.get('SECRET_KEY', 'j(j43$3df4=%#hvtt#=irj)of&9n8+0znv#4fbqejogtgvg5h')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['socialmediatestfreedom.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testfwapp',
+    'socialmediatestfreedom',
 ]
 
 MIDDLEWARE = [
